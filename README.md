@@ -126,6 +126,11 @@ where the `l(i)` values are stored in `DL`, the diagonal elements `u(i,i)` are s
 ## Usage
 
 ```javascript
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@deno/mod.js';
+```
+The previous example will load the latest bundled code from the deno branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/lapack-base-dgttrf/tags). For example,
+
+```javascript
 import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-deno/mod.js';
 ```
 
@@ -136,7 +141,7 @@ Computes an `LU` factorization of a real tridiagonal matrix `A` using eliminatio
 ```javascript
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@deno/mod.js';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-deno/mod.js';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@deno/mod.js';
 
 var DL = new Float64Array( [ 6.0, 6.0 ] );
 var D = new Float64Array( [ 20.0, 30.0, 10.0 ] );
@@ -176,7 +181,7 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 ```javascript
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@deno/mod.js';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-deno/mod.js';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@deno/mod.js';
 
 // Initial arrays...
 var DL0 = new Float64Array( [ 0.0, 6.0, 6.0 ] );
@@ -217,7 +222,7 @@ Computes an `LU` factorization of a real tridiagonal matrix `A` using eliminatio
 ```javascript
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@deno/mod.js';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-deno/mod.js';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@deno/mod.js';
 
 var DL = new Float64Array( [ 6.0, 6.0 ] );
 var D = new Float64Array( [ 20.0, 30.0, 10.0 ] );
@@ -261,7 +266,7 @@ While [`typed array`][mdn-typed-array] views mandate a view offset based on the 
 ```javascript
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@deno/mod.js';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-deno/mod.js';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@deno/mod.js';
 
 var DL = new Float64Array( [ 0.0, 6.0, 6.0 ] );
 var D = new Float64Array( [ 0.0, 20.0, 30.0, 10.0 ] );
@@ -315,7 +320,7 @@ dgttrf.ndarray( 3, DL, 1, 1, D, 1, 1, DU, 1, 1, DU2, 1, 1, IPIV, 1, 1 );
 ```javascript
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@deno/mod.js';
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-deno/mod.js';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@deno/mod.js';
 
 var N = 9;
 
