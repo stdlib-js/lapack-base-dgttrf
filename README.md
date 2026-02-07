@@ -126,6 +126,11 @@ where the `l(i)` values are stored in `DL`, the diagonal elements `u(i,i)` are s
 ## Usage
 
 ```javascript
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/lapack-base-dgttrf/tags). For example,
+
+```javascript
 import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-esm/index.mjs';
 ```
 
@@ -136,7 +141,7 @@ Computes an `LU` factorization of a real tridiagonal matrix `A` using eliminatio
 ```javascript
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@esm/index.mjs';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-esm/index.mjs';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@esm/index.mjs';
 
 var DL = new Float64Array( [ 6.0, 6.0 ] );
 var D = new Float64Array( [ 20.0, 30.0, 10.0 ] );
@@ -176,7 +181,7 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 ```javascript
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@esm/index.mjs';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-esm/index.mjs';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@esm/index.mjs';
 
 // Initial arrays...
 var DL0 = new Float64Array( [ 0.0, 6.0, 6.0 ] );
@@ -217,7 +222,7 @@ Computes an `LU` factorization of a real tridiagonal matrix `A` using eliminatio
 ```javascript
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@esm/index.mjs';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-esm/index.mjs';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@esm/index.mjs';
 
 var DL = new Float64Array( [ 6.0, 6.0 ] );
 var D = new Float64Array( [ 20.0, 30.0, 10.0 ] );
@@ -261,7 +266,7 @@ While [`typed array`][mdn-typed-array] views mandate a view offset based on the 
 ```javascript
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@esm/index.mjs';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-esm/index.mjs';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@esm/index.mjs';
 
 var DL = new Float64Array( [ 0.0, 6.0, 6.0 ] );
 var D = new Float64Array( [ 0.0, 20.0, 30.0, 10.0 ] );
@@ -320,7 +325,7 @@ dgttrf.ndarray( 3, DL, 1, 1, D, 1, 1, DU, 1, 1, DU2, 1, 1, IPIV, 1, 1 );
 
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@esm/index.mjs';
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@v0.1.1-esm/index.mjs';
+import dgttrf from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@esm/index.mjs';
 
 var N = 9;
 
