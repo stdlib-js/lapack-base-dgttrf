@@ -45,6 +45,11 @@ The `dgttrf` routine computes an LU factorization of a real N-by-N tridiagonal m
 A = L U
 ```
 
+<!-- <div class="equation" align="center" data-raw-text="A = L U" data-equation="eq:lu_decomposition">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@c4d46b7cc46098480b669a07e94be382a39cff2e/lib/node_modules/@stdlib/lapack/base/dgttrf/docs/img/equation_lu_decomposition.svg" alt="Equation for LU factorization.">
+    <br>
+</div> -->
+
 <!-- </equation> -->
 
 where `L` is a product of permutation and unit lower bidiagonal matrices and `U` is upper triangular with non-zeros in only the main diagonal and first two superdiagonals.
@@ -54,16 +59,13 @@ For a 5-by-5 tridiagonal matrix `A`, elements are stored in three arrays:
 <!-- <equation class="equation" label="eq:matrix_a" align="center" raw="A = \left[\begin{array}{rrrrr}d_1     & du_1     & 0       & 0          & 0 \\dl_1    & d_2      & du_2    & 0          & 0 \\0       & dl_2     & d_3     & du_3       & 0 \\0       & 0        & dl_3    & d_4        & du_4 \\0       & 0        & 0       & dl_4       & d_5\end{array}\right]" alt="Representation of matrix A."> -->
 
 ```math
-A = \left[
-\begin{array}{rrrrr}
-    d_1     & du_1     & 0       & 0          & 0 \\
-    dl_1    & d_2      & du_2    & 0          & 0 \\
-    0       & dl_2     & d_3     & du_3       & 0 \\
-    0       & 0        & dl_3    & d_4        & du_4 \\
-    0       & 0        & 0       & dl_4       & d_5
-    \end{array}
-\right]
+A = \left[\begin{array}{rrrrr}d_1     & du_1     & 0       & 0          & 0 \\dl_1    & d_2      & du_2    & 0          & 0 \\0       & dl_2     & d_3     & du_3       & 0 \\0       & 0        & dl_3    & d_4        & du_4 \\0       & 0        & 0       & dl_4       & d_5\end{array}\right]
 ```
+
+<!-- <div class="equation" align="center" data-raw-text="A = \left[\begin{array}{rrrrr}d_1     &amp; du_1     &amp; 0       &amp; 0          &amp; 0 \\dl_1    &amp; d_2      &amp; du_2    &amp; 0          &amp; 0 \\0       &amp; dl_2     &amp; d_3     &amp; du_3       &amp; 0 \\0       &amp; 0        &amp; dl_3    &amp; d_4        &amp; du_4 \\0       &amp; 0        &amp; 0       &amp; dl_4       &amp; d_5\end{array}\right]" data-equation="eq:matrix_a">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@c4d46b7cc46098480b669a07e94be382a39cff2e/lib/node_modules/@stdlib/lapack/base/dgttrf/docs/img/equation_matrix_a.svg" alt="Representation of matrix A.">
+    <br>
+</div> -->
 
 <!-- </equation> -->
 
@@ -84,32 +86,26 @@ The resulting `L` and `U` matrices have the following structure:
 <!-- <equation class="equation" label="eq:matrix_l" align="center" raw="L = \left[\begin{array}{rrrrr}1      & 0      & 0      & 0      & 0 \\l_1    & 1      & 0      & 0      & 0 \\0      & l_2    & 1      & 0      & 0 \\0      & 0      & l_3    & 1      & 0 \\0      & 0      & 0      & l_4    & 1\end{array}\right]" alt="Representation of matrix L as derived from DL."> -->
 
 ```math
-L = \left[
-    \begin{array}{rrrrr}
-    1      & 0      & 0      & 0      & 0 \\
-    l_1    & 1      & 0      & 0      & 0 \\
-    0      & l_2    & 1      & 0      & 0 \\
-    0      & 0      & l_3    & 1      & 0 \\
-    0      & 0      & 0      & l_4    & 1
-    \end{array}
-\right]
+L = \left[\begin{array}{rrrrr}1      & 0      & 0      & 0      & 0 \\l_1    & 1      & 0      & 0      & 0 \\0      & l_2    & 1      & 0      & 0 \\0      & 0      & l_3    & 1      & 0 \\0      & 0      & 0      & l_4    & 1\end{array}\right]
 ```
+
+<!-- <div class="equation" align="center" data-raw-text="L = \left[\begin{array}{rrrrr}1      &amp; 0      &amp; 0      &amp; 0      &amp; 0 \\l_1    &amp; 1      &amp; 0      &amp; 0      &amp; 0 \\0      &amp; l_2    &amp; 1      &amp; 0      &amp; 0 \\0      &amp; 0      &amp; l_3    &amp; 1      &amp; 0 \\0      &amp; 0      &amp; 0      &amp; l_4    &amp; 1\end{array}\right]" data-equation="eq:matrix_l">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@c4d46b7cc46098480b669a07e94be382a39cff2e/lib/node_modules/@stdlib/lapack/base/dgttrf/docs/img/equation_matrix_l.svg" alt="Representation of matrix L as derived from DL.">
+    <br>
+</div> -->
 
 <!-- </equation> -->
 
 <!-- <equation class="equation" label="eq:matrix_u" align="center" raw="U = \left[\begin{array}{rrrrr}u_{1,1} & u_{1,2} & u_{1,3} & 0       & 0 \\0       & u_{2,2} & u_{2,3} & u_{2,4} & 0 \\0       & 0       & u_{3,3} & u_{3,4} & u_{3,5} \\0       & 0       & 0       & u_{4,4} & u_{4,5} \\0       & 0       & 0       &  0      & u_{5,5}\end{array}\right]" alt="Representation of matrix U as derived from D, DU, DU2."> -->
 
 ```math
-U = \left[
-    \begin{array}{rrrrr}
-    u_{1,1} & u_{1,2} & u_{1,3} & 0       & 0 \\
-    0       & u_{2,2} & u_{2,3} & u_{2,4} & 0 \\
-    0       & 0       & u_{3,3} & u_{3,4} & u_{3,5} \\
-    0       & 0       & 0       & u_{4,4} & u_{4,5} \\
-    0       & 0       & 0       &  0      & u_{5,5}
-    \end{array}
-\right]
+U = \left[\begin{array}{rrrrr}u_{1,1} & u_{1,2} & u_{1,3} & 0       & 0 \\0       & u_{2,2} & u_{2,3} & u_{2,4} & 0 \\0       & 0       & u_{3,3} & u_{3,4} & u_{3,5} \\0       & 0       & 0       & u_{4,4} & u_{4,5} \\0       & 0       & 0       &  0      & u_{5,5}\end{array}\right]
 ```
+
+<!-- <div class="equation" align="center" data-raw-text="U = \left[\begin{array}{rrrrr}u_{1,1} &amp; u_{1,2} &amp; u_{1,3} &amp; 0       &amp; 0 \\0       &amp; u_{2,2} &amp; u_{2,3} &amp; u_{2,4} &amp; 0 \\0       &amp; 0       &amp; u_{3,3} &amp; u_{3,4} &amp; u_{3,5} \\0       &amp; 0       &amp; 0       &amp; u_{4,4} &amp; u_{4,5} \\0       &amp; 0       &amp; 0       &amp;  0      &amp; u_{5,5}\end{array}\right]" data-equation="eq:matrix_u">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@c4d46b7cc46098480b669a07e94be382a39cff2e/lib/node_modules/@stdlib/lapack/base/dgttrf/docs/img/equation_matrix_u.svg" alt="Representation of matrix U as derived from D, DU, DU2.">
+    <br>
+</div> -->
 
 <!-- </equation> -->
 
@@ -119,38 +115,32 @@ where the `l(i)` values are stored in `DL`, the diagonal elements `u(i,i)` are s
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/lapack-base-dgttrf
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-dgttrf = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var dgttrf = require( 'path/to/vendor/umd/lapack-base-dgttrf/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.dgttrf;
-})();
-</script>
+var dgttrf = require( '@stdlib/lapack-base-dgttrf' );
 ```
 
 #### dgttrf( N, DL, D, DU, DU2, IPIV )
@@ -334,15 +324,10 @@ dgttrf.ndarray( 3, DL, 1, 1, D, 1, 1, DU, 1, 1, DU2, 1, 1, IPIV, 1, 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dgttrf@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Int32Array = require( '@stdlib/array-int32' );
+var Float64Array = require( '@stdlib/array-float64' );
+var dgttrf = require( '@stdlib/lapack-base-dgttrf' );
 
 var N = 9;
 
@@ -375,11 +360,6 @@ console.log( DU );
 console.log( DU2 );
 console.log( IPIV );
 console.log( info );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -388,7 +368,73 @@ console.log( info );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+TODO
+```
+
+#### TODO
+
+TODO.
+
+```c
+TODO
+```
+
+TODO
+
+```c
+TODO
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+TODO
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
