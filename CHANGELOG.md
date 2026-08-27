@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-07-21)
+## Unreleased (2026-08-27)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`607bbc6`](https://github.com/stdlib-js/stdlib/commit/607bbc6e104c273e5b26cabfb21a8c06f3d5d375) - **build:** avoid false positives in ESLint rule `jsdoc-doctest-decimal-point` [(#14644)](https://github.com/stdlib-js/stdlib/pull/14644) _(by Philipp Burckhardt, Athan Reines)_
 -   [`4a0c3be`](https://github.com/stdlib-js/stdlib/commit/4a0c3be4719f713b69a8ff6b66cc3b0573bf4444) - **docs:** update Markdown equation elements _(by stdlib-bot)_
 -   [`f748b45`](https://github.com/stdlib-js/stdlib/commit/f748b45d1e3b17e3ccbd096268bf186fdeaee5ab) - **docs:** update Markdown equation SVGs _(by stdlib-bot)_
 -   [`b953edd`](https://github.com/stdlib-js/stdlib/commit/b953edd95d0ca1b521d0abbd2c2719d099ff7807) - **refactor:** use `constants/float64/nan` and clean-up [(#13585)](https://github.com/stdlib-js/stdlib/pull/13585) _(by Philipp Burckhardt)_
@@ -29,8 +30,9 @@
 
 ### Contributors
 
-A total of 3 people contributed to this release. Thank you to the following contributors:
+A total of 4 people contributed to this release. Thank you to the following contributors:
 
+-   Athan Reines
 -   Karan Anand
 -   Philipp Burckhardt
 -   Prajjwal Bajpai
